@@ -1,0 +1,15 @@
+{
+  "name": "Lulz-Pup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": {
+    "name": "Jacob William"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.4.8",
+    "dot-env": "^0.0.1",
+    "graphql": "^14.1.1",
+    "mongoose": "^5.4.16"
+  }
+}
