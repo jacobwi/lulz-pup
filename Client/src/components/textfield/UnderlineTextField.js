@@ -12,7 +12,7 @@ export default class UnderlineTextField extends Component {
                 placeholder={placeholder}
                 placeholderTextColor='white'
                 style={[{}, styles.text]}
-                keyboardType='email-address'
+                keyboardType={keyboardType === null ? 'default' : keyboardType}
                 autoFocus={true}
                 autoCorrect={false}
                 underlineColorAndroid="transparent"

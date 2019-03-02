@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Image, StyleSheet } from 'react-native'
+import { Text, View, Image, StyleSheet, TouchableHighlight } from 'react-native'
 import * as Colors from '../config/Colors';
 import Logo from '../../assets/galaxy.png';
 import UnderlineTextField from '../components/textfield/UnderlineTextField';
@@ -10,6 +10,9 @@ export default class LoginScreen extends Component {
 
   onSubmit = () => {
     alert("Submit pressed")
+  }
+  onSignup = () => {
+    alert("Sign up pressed")
   }
   render() {
     return (
@@ -28,9 +31,15 @@ export default class LoginScreen extends Component {
             placeholder="Password"
           />
         </View>
-        <NextButton style={styles.loginButton}
-          handleOnPress={this.onSubmit}
-        />
+        <NextButton handleOnPress={this.onSubmit}/>
+        <View style={styles.signup}>
+          <Text style={styles.signupText}>Don't Have An Account? </Text>
+          <TouchableHighlight onPress={this.onSignup}>
+            <Text style={styles.signupClickable}>
+              Sign Up!
+            </Text>
+          </TouchableHighlight>
+        </View>
       </View>
     )
   }
@@ -64,5 +73,19 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     right: 0
+  },
+  signup: {
+    flex: 1,
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    marginBottom: 16,
+  },
+  signupText: {
+    color: `${Colors.GuestText}`,
+  },
+  signupClickable: {
+    color: `${Colors.GuestClickable}`,
+    textDecorationLine: 'underline'
   }
 })
