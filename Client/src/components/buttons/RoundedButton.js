@@ -25,16 +25,20 @@ RoundedButton.propTypes = {
 
 const styles = StyleSheet.create({
     container: {
-        display: 'flex',
-        padding: 15,
-        marginTop: 10,
-        borderWidth: 0.4,
-        borderRadius: 40
+      display: 'flex',
+      paddingLeft: 20,
+      paddingRight: 20,
+      paddingTop: 12,
+      paddingBottom: 12,
+      borderRadius: 40,
+      borderWidth: 0.5,
+      marginBottom: 15,
+      alignItems: 'center',
     },
     text: {
-        textAlign: 'center',
-        fontSize: 16,
-        width: '100%',
-        letterSpacing: 2
+      textAlign: 'center',
+      fontSize: 16,
+      width: '100%',
+      letterSpacing: 2
     }
 })

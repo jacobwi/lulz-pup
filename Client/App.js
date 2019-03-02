@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import GuestScreen from './src/screens/GuestScreen';
+import LoginScreen from './src/screens/LoginScreen';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to rASDFAFASeload,\n' + 'Cmd+D or shake for dev menu',
@@ -12,7 +13,7 @@ const instructions = Platform.select({
 
 export default class App extends Component {
   render() {
-    return <GuestScreen />;
+    return <LoginScreen />
   }
 }
 
