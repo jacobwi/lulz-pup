@@ -7,7 +7,7 @@ export default class RoundedButton extends Component {
     render() {
     const { text, textColor, backgroundColor, borderColor, handleOnPress } = this.props;
     return (
-      <TouchableOpacity style={[{backgroundColor}, {borderColor}, styles.container]} underlayColor='gray' activeOpacity={0.6}
+      <TouchableOpacity style={[{backgroundColor}, {borderColor}, styles.container]} underlayColor={Colors.Highlight} activeOpacity={0.7}
         onPress={handleOnPress}  disabled={false}
       >
         <Text style={ [{color: textColor} ,styles.text]}>{text}</Text>
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     text: {
         textAlign: 'center',
         fontSize: 16,
-        width: '100%'
+        width: '100%',
+        letterSpacing: 2
     }
 })

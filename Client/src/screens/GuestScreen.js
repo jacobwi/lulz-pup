@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, Animated, View, StyleSheet, Image, Alert } from 'react-native'
+import { Text, TouchableHighlight, View, StyleSheet, Image } from 'react-native'
 import * as Colors from '../config/Colors';
 import Logo from '../../assets/galaxy.png';
 import RoundedButton from '../components/buttons/RoundedButton';
@@ -23,6 +23,14 @@ export default class GuestScreen extends Component {
         <View style={styles.bottom}>
           <RoundedButton text="Login" textColor='white' backgroundColor='transparent' borderColor="white" handleOnPress={this.onLogInPressed}/>
           <RoundedButton text="Signup" textColor='white' backgroundColor='#311b92' handleOnPress={this.onSignupPressed}/>
+        </View>
+        <View style={styles.terms}>
+          <Text style={styles.termsText}>By using this app, I agree to </Text>
+          <TouchableHighlight style={styles.terms}>
+            <Text style={styles.termsClickable}>
+              Lulz Pup's Terms and Conditions
+            </Text>
+          </TouchableHighlight>
         </View>
       </View>
     )
@@ -53,6 +61,20 @@ const styles = StyleSheet.create({
       flexDirection: 'column',
       justifyContent: 'center',
       display: 'flex'
+    },
+    terms : {
+      alignItems: 'flex-start',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: 16,
+    },
+    termsText: {
+      color: `${Colors.GuestText}`,
+    },
+    termsClickable: {
+      color: `${Colors.GuestClickable}`,
+      textDecorationLine: 'underline'
     }
 });
   
