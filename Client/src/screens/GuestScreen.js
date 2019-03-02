@@ -1,22 +1,28 @@
 import React, { Component } from 'react'
-import { Text, Animated, View, StyleSheet, Image } from 'react-native'
+import { Text, Animated, View, StyleSheet, Image, Alert } from 'react-native'
 import * as Colors from '../config/Colors';
 import Logo from '../../assets/galaxy.png';
 import RoundedButton from '../components/buttons/RoundedButton';
-import FadeAnimation from '../config/Animations';
+
+
 
 export default class GuestScreen extends Component {
-
+  onLogInPressed = () => {
+    alert('Login pressed');
+  }
+  onSignupPressed = () => {
+    alert('Sign up pressed');
+  }
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.top}>
           <Image source={Logo} />
-          <Text style={styles.welcome}>Welcome To Lulz Pop!</Text>
+          <Text style={styles.welcome}>Welcome To Lulz Pup!</Text>
         </View>
         <View style={styles.bottom}>
-          <RoundedButton text="Login" textColor='white' backgroundColor='transparent' borderColor="white" />
-          <RoundedButton text="Signup" textColor='white' backgroundColor='#311b92' />
+          <RoundedButton text="Login" textColor='white' backgroundColor='transparent' borderColor="white" handleOnPress={this.onLogInPressed}/>
+          <RoundedButton text="Signup" textColor='white' backgroundColor='#311b92' handleOnPress={this.onSignupPressed}/>
         </View>
       </View>
     )
