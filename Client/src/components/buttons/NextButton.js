@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, TouchableHighlight, View } from 'react-native'
+import { StyleSheet, TouchableHighlight, KeyboardAvoidingView } from 'react-native'
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import * as Colors from '../../config/Colors';
@@ -8,7 +8,7 @@ export default class NextButton extends Component {
     render() {
     const { handleOnPress } = this.props;
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView style={styles.container}>
             <TouchableHighlight style={styles.button}
                 onPress={handleOnPress}  disabled={false}
                 underlayColor={Colors.Highlight}
@@ -18,7 +18,7 @@ export default class NextButton extends Component {
                 size={32}
             />
             </TouchableHighlight>
-        </View>
+        </KeyboardAvoidingView>
     )
   }
 }

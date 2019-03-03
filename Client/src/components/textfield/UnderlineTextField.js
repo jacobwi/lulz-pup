@@ -2,10 +2,22 @@ import React, { Component } from 'react'
 import { TextInput, StyleSheet, View } from 'react-native'
 import PropTypes from 'prop-types';
 import * as Colors from '../../config/Colors';
-
+import Icon from 'react-native-vector-icons/FontAwesome'
 export default class UnderlineTextField extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state={
+            passwordToggler: props.isHidden
+        }
+    }
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            passwordToggler: nextProps.isHidden
+        })
+    }
     render() {
-    const { keyboardType, placeholder } = this.props;
+    const { keyboardType, placeholder, input, onTogglePress, isHidden } = this.props;
     return (
         <View style={styles.container}>
             <TextInput
@@ -16,7 +28,9 @@ export default class UnderlineTextField extends Component {
                 autoFocus={true}
                 autoCorrect={false}
                 underlineColorAndroid="transparent"
+                secureTextEntry={this.state.passwordToggler}     
             />
+             {input === 'password' ? <Icon style={styles.icon} name="eye" size={24} color={Colors.Highlight} onPress={onTogglePress}/> : null}
         </View>
     )
   }
@@ -31,11 +45,19 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         borderBottomWidth: 1,
-        paddingTop: 5,
+        flexDirection: 'row',
         borderBottomColor: 'white',
-        marginTop: 20
-    },
+        
+    }, 
     text: {
-        color: Colors.GuestText
+        color: Colors.GuestText,
+        flex: 1,
+        paddingTop: 10,
+        paddingRight: 10,
+        paddingBottom: 10,
+        paddingLeft: 0,
+    },
+    icon: {
+        padding: 10,
     }
 })

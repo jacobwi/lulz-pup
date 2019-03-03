@@ -7,12 +7,20 @@ import RoundedButton from '../components/buttons/RoundedButton';
 import NextButton from '../components/buttons/NextButton';
 
 export default class LoginScreen extends Component {
-
+  state = {
+    isHidden: true,
+    passwordInput: 'password'
+  }
   onSubmit = () => {
     alert("Submit pressed")
   }
   onSignup = () => {
     alert("Sign up pressed")
+  }
+  onTogglePassword = () => {
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
   }
   render() {
     return (
@@ -25,10 +33,14 @@ export default class LoginScreen extends Component {
           <UnderlineTextField
             keyboardType='email-address'
             placeholder="Email Address"
+            input='email'
           />
           <UnderlineTextField
             keyboardType='default'
             placeholder="Password"
+            input='password'
+            onTogglePress={this.onTogglePassword}
+            isHidden={this.state.isHidden}
           />
         </View>
         <NextButton handleOnPress={this.onSubmit}/>
