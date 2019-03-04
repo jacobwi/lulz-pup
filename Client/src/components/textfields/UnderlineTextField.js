@@ -17,7 +17,7 @@ export default class UnderlineTextField extends Component {
         })
     }
     render() {
-    const { keyboardType, placeholder, input, onTogglePress, isHidden } = this.props;
+    const { keyboardType, placeholder, input, onTogglePress, togglerColor } = this.props;
     return (
         <View style={styles.container}>
             <TextInput
@@ -30,7 +30,7 @@ export default class UnderlineTextField extends Component {
                 underlineColorAndroid="transparent"
                 secureTextEntry={this.state.passwordToggler}     
             />
-             {input === 'password' ? <Icon style={styles.icon} name="eye" size={24} color={Colors.Highlight} onPress={onTogglePress}/> : null}
+             {input === 'password' ? <Icon style={[{color: togglerColor},styles.icon]} name="eye" size={24} color={Colors.Highlight} onPress={onTogglePress}/> : null}
         </View>
     )
   }

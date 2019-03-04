@@ -2,14 +2,16 @@ import React, { Component } from 'react'
 import { Text, View, Image, StyleSheet, TouchableHighlight } from 'react-native'
 import * as Colors from '../config/Colors';
 import Logo from '../../assets/galaxy.png';
-import UnderlineTextField from '../components/textfield/UnderlineTextField';
-import RoundedButton from '../components/buttons/RoundedButton';
+import UnderlineTextField from '../components/textfields/UnderlineTextField';
 import NextButton from '../components/buttons/NextButton';
 
 export default class LoginScreen extends Component {
-  state = {
-    isHidden: true,
-    passwordInput: 'password'
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHidden: true,
+      togglerColor: 'gray'
+    }
   }
   onSubmit = () => {
     alert("Submit pressed")
@@ -19,7 +21,8 @@ export default class LoginScreen extends Component {
   }
   onTogglePassword = () => {
     this.setState({
-      isHidden: !this.state.isHidden
+      isHidden: !this.state.isHidden,
+      togglerColor: this.state.isHidden ? 'white' : 'gray'
     })
   }
   render() {
@@ -41,6 +44,7 @@ export default class LoginScreen extends Component {
             input='password'
             onTogglePress={this.onTogglePassword}
             isHidden={this.state.isHidden}
+            togglerColor={this.state.togglerColor}
           />
         </View>
         <NextButton handleOnPress={this.onSubmit}/>
